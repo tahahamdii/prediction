@@ -84,4 +84,14 @@ base_output = Dense(64, activation="relu")(base_output)
 base_output = Dropout(0.5)(base_output)
 base_output = Dense(2, activation="softmax")(base_output)
 
-g
+# Freeze the layers
+for layer in base_model.layers:
+    layer.trainable = False
+
+
+# In[11]:
+
+
+# Compile the model
+model = Model(inputs = base_input, outputs = base_output)
+model.compile(optimizer= Adam(learning_rate= 1e-3), metrics= ['accuracy'], loss= 'binary_crossentropy')
