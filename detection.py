@@ -61,3 +61,15 @@ labels = label_binarizer.fit_transform(labels)
 labels = to_categorical(labels)
 
 print(labels[0])
+
+
+#Split the dataset
+(train_X, test_X, train_Y, test_Y) = train_test_split(images, labels, test_size= 0.10, random_state= 42, stratify= labels)
+
+
+# In[8]:
+
+
+# Build the Image Data Generator
+train_generator = ImageDataGenerator(fill_mode= 'nearest', rotation_range= 15)
+g
