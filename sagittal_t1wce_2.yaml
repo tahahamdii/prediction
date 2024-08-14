@@ -1,0 +1,7 @@
+train: C:/BrainTumor_sagittal_t1wce_Yolov10/sagittal_t1wce_2_class/images/train
+val: C:/BrainTumor_sagittal_t1wce_Yolov10/sagittal_t1wce_2_class/images/test
+
+# Classes
+nc: 2
+names: ['negative','positive']
+
