@@ -36,3 +36,28 @@ for image_path in image_paths:
 
     images.append(image)
     labels.append(label)
+
+
+def plot_image(image):
+    plt.imshow(image)
+
+plot_image(images[0])
+
+
+# In[5]:
+
+
+# Convert into numpy arrays
+images = np.array(images) / 255.0
+labels = np.array(labels)
+
+
+# In[6]:
+
+
+# Perform One-hot encoding
+label_binarizer = LabelBinarizer()
+labels = label_binarizer.fit_transform(labels)
+labels = to_categorical(labels)
+
+print(labels[0])
