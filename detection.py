@@ -72,4 +72,16 @@ print(labels[0])
 
 # Build the Image Data Generator
 train_generator = ImageDataGenerator(fill_mode= 'nearest', rotation_range= 15)
+
+
+# Build the model
+base_model = VGG16(weights= 'imagenet', input_tensor= Input(shape = (224, 224, 3)), include_top= False)
+base_input = base_model.input
+base_output = base_model.output
+base_output = AveragePooling2D(pool_size=(4, 4))(base_output)
+base_output = Flatten(name="flatten")(base_output)
+base_output = Dense(64, activation="relu")(base_output)
+base_output = Dropout(0.5)(base_output)
+base_output = Dense(2, activation="softmax")(base_output)
+
 g
