@@ -20,3 +20,19 @@ import matplotlib.pyplot as plt
 import argparse
 import os
 import cv2
+
+
+
+
+
+#
+images = []
+labels = []
+
+for image_path in image_paths:
+    label = image_path.split(os.path.sep)[-2]
+    image = cv2.imread(image_path)
+    image = cv2.resize(image, (224, 224))
+
+    images.append(image)
+    labels.append(label)
